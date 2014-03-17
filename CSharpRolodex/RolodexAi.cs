@@ -7,78 +7,78 @@ namespace CSharpRolodex
 	{
 		public static void MenuSelectionRedirect ()
 		{
-			string selectedMenuItem = Console.ReadLine();
-			if (selectedMenuItem == "1")
-			{
-				OpenPage("Search");
-			}
-			else if (selectedMenuItem == "2")
-			{
-				OpenPage("Add");
-			}
-			else if (selectedMenuItem == "3")
-			{
-				OpenPage("Quit");
-			}
-			else
-			{
-				OpenPage("Error");
+			string selectedMenuItem = Console.ReadLine ();
+			if (selectedMenuItem == "1") {
+				OpenPage ("Search");
+			} else if (selectedMenuItem == "2") {
+				OpenPage ("Add");
+			} else if (selectedMenuItem == "3") {
+				OpenPage ("Quit");
+			} else {
+				OpenPage ("Error");
 			}
 
 		}
 
-		public static void OpenPage(string page)
+		public static void OpenPage (string page)
 		{ 
 			RolodexUi.Header (page);
 
 			switch (page) {
-				case "Add":
-				AddContact();
+			case "Add":
+				AddContact ();
 				break;
-				case "Search":
-				SearchContact();
+			case "Search":
+				SearchContact ();
 				break;
 			case "Quit":
 				QuitRolodex ();
 				break;
 			case "Error":
 				ErrorNotify ();
+				break;
 			default:
 				break;
 			}
 
 		}
 
-		public static void AddContact()
+		public static void AddContact ()
 		{
 			Console.Write ("\nFirst Name: ");
-			string firstName = Console.ReadLine ().ToUpper();
+			string firstName = Console.ReadLine ().ToUpper ();
 			Console.Write ("Last Name: ");
-			string lastName = Console.ReadLine ().ToUpper();
+			string lastName = Console.ReadLine ().ToUpper ();
 			Console.Write ("Phone Number: ");
 			string phoneNumber = Console.ReadLine ();
-			AddressBook.WriteToAddressBook(firstName +","+lastName+","+phoneNumber);
-			Console.WriteLine ("\nA new contact "+firstName.ToUpperInvariant()+" has been added!");
+			AddressBook.WriteToAddressBook (firstName + "," + lastName + "," + phoneNumber);
+			Console.WriteLine ("\nA new contact " + firstName.ToUpperInvariant () + " has been added!");
 			RolodexUi.EndOfProcess ();
 		}
 
 		static void SearchContact ()
 		{
-			Console.WriteLine("\nWho you looking for?");
-			string contactToSearch = Console.ReadLine().ToUpper();
+			Console.WriteLine ("\nWho you looking for?");
+			string contactToSearch = Console.ReadLine ().ToUpper ();
 			string[] AllContactsList = AddressBook.ReturnAllContacts ();
+			bool isAContactPresent = false;
 			foreach (string contact in AllContactsList) {
 				if (contact.Contains (contactToSearch)) {
 					Console.WriteLine (contact);
+					isAContactPresent = true;
 				}
+ 
 			}
+			#if !isAContactPresent
+			Console.WriteLine ("\n Oops! No such contact exists!");
+			#endif
 			RolodexUi.EndOfProcess ();
 		}
 
 		static void QuitRolodex ()
 		{
 			Console.WriteLine ("\nBye Bye !");
-			Thread.Sleep(1000);
+			Thread.Sleep (1000);
 			//Environment.Exit(0);
 		}
 

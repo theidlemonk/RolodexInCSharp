@@ -1,4 +1,5 @@
 using System;
+using System.Threading;
 
 namespace CSharpRolodex
 {
@@ -28,7 +29,6 @@ namespace CSharpRolodex
 
 		public static void OpenPage(string page)
 		{ 
-			Console.Clear ();
 			RolodexUi.Header (page);
 
 			switch (page) {
@@ -38,6 +38,11 @@ namespace CSharpRolodex
 				case "Search":
 				SearchContact();
 				break;
+			case "Quit":
+				QuitRolodex ();
+				break;
+			case "Error":
+				ErrorNotify ();
 			default:
 				break;
 			}
@@ -46,7 +51,7 @@ namespace CSharpRolodex
 
 		public static void AddContact()
 		{
-			Console.Write ("First Name: ");
+			Console.Write ("\nFirst Name: ");
 			string firstName = Console.ReadLine ().ToUpper();
 			Console.Write ("Last Name: ");
 			string lastName = Console.ReadLine ().ToUpper();
@@ -54,11 +59,12 @@ namespace CSharpRolodex
 			string phoneNumber = Console.ReadLine ();
 			AddressBook.WriteToAddressBook(firstName +","+lastName+","+phoneNumber);
 			Console.WriteLine ("\nA new contact "+firstName.ToUpperInvariant()+" has been added!");
+			RolodexUi.EndOfProcess ();
 		}
 
 		static void SearchContact ()
 		{
-			Console.WriteLine("Who you looking for?");
+			Console.WriteLine("\nWho you looking for?");
 			string contactToSearch = Console.ReadLine().ToUpper();
 			string[] AllContactsList = AddressBook.ReturnAllContacts ();
 			foreach (string contact in AllContactsList) {
@@ -66,7 +72,20 @@ namespace CSharpRolodex
 					Console.WriteLine (contact);
 				}
 			}
-			 
+			RolodexUi.EndOfProcess ();
+		}
+
+		static void QuitRolodex ()
+		{
+			Console.WriteLine ("\nBye Bye !");
+			Thread.Sleep(1000);
+			//Environment.Exit(0);
+		}
+
+		static void ErrorNotify ()
+		{
+			Console.WriteLine ("\n Really! That was not even an option!\n Type a number as a selection!");
+			RolodexUi.EndOfProcess ();
 		}
 	}
 }

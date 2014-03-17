@@ -5,7 +5,8 @@ namespace CSharpRolodex
 {
 	public class AddressBook
 	{
-		public static string AddressBookFileLocation = @"/Users/TheIdleMonk/code/Xamarine/CSharpRolodex/CSharpRolodex/AddressBook.txt";
+		//public static string AddressBookFileLocation = @"/Users/TheIdleMonk/code/Xamarine/CSharpRolodex/CSharpRolodex/AddressBook.txt";
+		public static string AddressBookFileLocation = @"../../AddressBook.txt";
 		public static void WriteToAddressBook(string lineToWrite)
 		{
 			//	File.WriteAllText (AddressBookFileLocation, lineToWrite);

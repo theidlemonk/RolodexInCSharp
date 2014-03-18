@@ -7,18 +7,20 @@ namespace CSharpRolodex
 		public static void Header (string page)
 		{
 			Console.Clear ();
-			Console.WriteLine ("****************************");
-			Console.WriteLine ("       >>>ROLODEX<<<");
-			Console.WriteLine ("..." + page.ToUpper () + "...   ");
-			Console.WriteLine ("****************************");
+			Console.BackgroundColor = ConsoleColor.White;
+			PrintInColor ("****************************",ConsoleColor.Cyan);
+			PrintInColor ("       >>>ROLODEX<<<",ConsoleColor.Cyan);
+			PrintInColor ("..." + page.ToUpper () + "...   ",ConsoleColor.Blue);
+			PrintInColor ("****************************",ConsoleColor.Cyan);
+
 		}
 
 		public static void MainMenu ()
 		{
-			Console.WriteLine ("\nWhat do you want to do!");
-			Console.WriteLine ("1. Search Contact");
-			Console.WriteLine ("2. Add Contact");
-			Console.WriteLine ("3. EXIT\n");
+			PrintInColor ("\nWhat do you want to do!", ConsoleColor.Green);
+			PrintInColor ("1. Search Contact",ConsoleColor.Green);
+			PrintInColor ("2. Add Contact",ConsoleColor.Green);
+			PrintInColor ("3. EXIT\n",ConsoleColor.Green);
 		}
 
 		public static void ApplicationLoop()
@@ -30,9 +32,16 @@ namespace CSharpRolodex
 
 		public static void EndOfProcess()
 		{
-			Console.WriteLine ("\n Please hit any key to Continue!");
+			PrintInColor ("\n Please hit any key to Continue!",ConsoleColor.Green);
 			Console.ReadKey ();
 			ApplicationLoop ();
+		}
+
+		public static void PrintInColor(string textToPrint, ConsoleColor color)
+		{
+			Console.ForegroundColor = color;
+			Console.WriteLine (textToPrint);
+			Console.ResetColor ();
 		}
 
 	}

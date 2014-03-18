@@ -52,39 +52,39 @@ namespace CSharpRolodex
 			Console.Write ("Phone Number: ");
 			string phoneNumber = Console.ReadLine ();
 			AddressBook.WriteToAddressBook (firstName + "," + lastName + "," + phoneNumber);
-			Console.WriteLine ("\nA new contact " + firstName.ToUpperInvariant () + " has been added!");
+			RolodexUi.PrintInColor ("\nA new contact " + firstName.ToUpper () + " has been added!",ConsoleColor.Cyan);
 			RolodexUi.EndOfProcess ();
 		}
 
 		static void SearchContact ()
 		{
-			Console.WriteLine ("\nWho you looking for?");
+			RolodexUi.PrintInColor ("\nWho you looking for?",ConsoleColor.Cyan);
 			string contactToSearch = Console.ReadLine ().ToUpper ();
 			string[] AllContactsList = AddressBook.ReturnAllContacts ();
 			bool isAContactPresent = false;
 			foreach (string contact in AllContactsList) {
 				if (contact.Contains (contactToSearch)) {
-					Console.WriteLine (contact);
+					RolodexUi.PrintInColor ("\n"+contact,ConsoleColor.DarkCyan);
 					isAContactPresent = true;
 				}
  
 			}
-			#if !isAContactPresent
-			Console.WriteLine ("\n Oops! No such contact exists!");
-			#endif
+			if (!isAContactPresent){
+				RolodexUi.PrintInColor("\n Oops! No such contact exists!",ConsoleColor.Red);
+			}
 			RolodexUi.EndOfProcess ();
 		}
 
 		static void QuitRolodex ()
 		{
-			Console.WriteLine ("\nBye Bye !");
+			RolodexUi.PrintInColor ("\nBye Bye !",ConsoleColor.Cyan);
 			Thread.Sleep (1000);
 			//Environment.Exit(0);
 		}
 
 		static void ErrorNotify ()
 		{
-			Console.WriteLine ("\n Really! That was not even an option!\n Type a number as a selection!");
+			RolodexUi.PrintInColor ("\n Really! That was not even an option!\n Type a number as a selection!",ConsoleColor.Red);
 			RolodexUi.EndOfProcess ();
 		}
 	}

@@ -34,10 +34,8 @@ namespace CSharpRolodex
 			case "Quit":
 				QuitRolodex ();
 				break;
-			case "Error":
-				ErrorNotify ();
-				break;
 			default:
+				ErrorNotify ();
 				break;
 			}
 

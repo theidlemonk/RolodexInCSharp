@@ -1,0 +1,5 @@
+C:\CODE\RolodexInCSharp\CSharpRolodex\bin\Debug\CSharpRolodex.exe
+C:\CODE\RolodexInCSharp\CSharpRolodex\bin\Debug\CSharpRolodex.pdb
+C:\CODE\RolodexInCSharp\CSharpRolodex\obj\x86\Debug\CSharpRolodex.csprojResolveAssemblyReference.cache
+C:\CODE\RolodexInCSharp\CSharpRolodex\obj\x86\Debug\CSharpRolodex.exe
+C:\CODE\RolodexInCSharp\CSharpRolodex\obj\x86\Debug\CSharpRolodex.pdb

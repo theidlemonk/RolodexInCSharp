@@ -21,7 +21,8 @@ namespace CSharpRolodex
 			PrintInColor ("1. Search Contact", ConsoleColor.Green);
 			PrintInColor ("2. Add Contact", ConsoleColor.Green);
 			PrintInColor ("3. Delete Contact", ConsoleColor.Green);
-			PrintInColor ("4. EXIT\n", ConsoleColor.Green);
+            PrintInColor ("4. View All Contacts", ConsoleColor.Green);
+			PrintInColor ("5. EXIT\n", ConsoleColor.Green);
 		}
 
 		public static void ApplicationLoop ()

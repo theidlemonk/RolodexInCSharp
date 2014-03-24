@@ -5,10 +5,9 @@ namespace CSharpRolodex
 {
 	public class AddressBook
 	{
-		//public static string AddressBookFileLocation = @"/Users/TheIdleMonk/code/Xamarine/CSharpRolodex/CSharpRolodex/AddressBook.txt";
-		public static string AddressBookFileLocation = @"../../AddressBook.txt";
+		private static string AddressBookFileLocation = @"../../AddressBook.txt";
 
-		public static void WriteToAddressBook (string lineToWrite)
+		public void WriteToAddressBook (string lineToWrite)
 		{
 			//	File.WriteAllText (AddressBookFileLocation, lineToWrite);
 			using (StreamWriter w = File.AppendText (AddressBookFileLocation)) {
@@ -16,12 +15,12 @@ namespace CSharpRolodex
 			}
 		}
 
-		public static string[] ReturnAllContacts ()
+		public string[] ReturnAllContacts ()
 		{
 			return File.ReadAllLines (AddressBookFileLocation);
 		}
 
-		public static void DeleteFromAddressBook (string contactToDelete)
+		public void DeleteFromAddressBook (string contactToDelete)
 		{
 			string[] allContacts = ReturnAllContacts ();
 			File.WriteAllText (AddressBookFileLocation, string.Empty);
@@ -32,8 +31,6 @@ namespace CSharpRolodex
 			}
 
 		}
-
-
 	}
 }
 

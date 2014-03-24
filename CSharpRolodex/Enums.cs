@@ -9,7 +9,7 @@ namespace CSharpRolodex
 		Add = 2,
 		Delete = 3,
 		AllContacts = 4,
-		EXIT = 5
+		Exit = 5
 	}
 }
 

@@ -5,8 +5,8 @@ namespace CSharpRolodex
 	class Program
 	{
 		public static void Main (string[] args)
-		{   
-			RolodexUi.ApplicationLoop ();
+		{   RolodexUi rolodexUi = new RolodexUi ();
+			rolodexUi.ApplicationLoop ();
 		}
 	}
 }

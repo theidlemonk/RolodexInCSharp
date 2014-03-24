@@ -39,6 +39,7 @@
     <Compile Include="RolodexAi.cs" />
     <Compile Include="RolodexUi.cs" />
     <Compile Include="AddressBook.cs" />
+    <Compile Include="Enums.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

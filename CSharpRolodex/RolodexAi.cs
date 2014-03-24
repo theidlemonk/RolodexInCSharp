@@ -1,37 +1,49 @@
 using System;
 using System.Threading;
 
+
 namespace CSharpRolodex
 {
     public class RolodexAi
     {
         public static void MenuSelectionRedirect()
         {
-            string selectedMenuItem = Console.ReadLine();
-            if (selectedMenuItem == "1")
-            {
-                OpenPage("Search");
-            }
-            else if (selectedMenuItem == "2")
-            {
-                OpenPage("Add");
-            }
-            else if (selectedMenuItem == "3")
-            {
-                OpenPage("Delete");
-            }
-            else if (selectedMenuItem == "4")
-            {
-                OpenPage("All Contacts");
-            }
-            else if (selectedMenuItem == "5")
-            {
-                OpenPage("Quit");
-            }
-            else
-            {
-                OpenPage("Error");
-            }
+			string selectedMenuItem = Console.ReadLine ();
+				//((int)UserOptions.Add).ToString();
+
+			//Enum.Parse(typeof(UserOptions), selectedMenuItem, true);
+			//UserOptions userSelection =  Enum.ToObject (typeof(UserOptions), Convert.ToInt16 (selectedMenuItem));
+//			UserOptions userSelection = (UserOptions)Convert.ToInt16 (selectedMenuItem);
+			int i;
+			UserOptions userSelection = int.TryParse (selectedMenuItem, out i) ? (UserOptions)Convert.ToInt16 (selectedMenuItem) : (UserOptions)0; 
+
+
+			OpenPage (userSelection.ToString());
+
+//            if (selectedMenuItem == "1")
+//            {
+//                OpenPage("Search");
+//            }
+//            else if (selectedMenuItem == "2")
+//            {
+//                OpenPage("Add");
+//            }
+//            else if (selectedMenuItem == "3")
+//            {
+//                OpenPage("Delete");
+//            }
+//            else if (selectedMenuItem == "4")
+//            {
+//                OpenPage("All Contacts");
+//            }
+//            else if (selectedMenuItem == "5")
+//            {
+//                OpenPage("Quit");
+//            }
+//            else
+//            {
+//                OpenPage("Error");
+//            }
         }
 
         public static void OpenPage(string page)
@@ -49,7 +61,7 @@ namespace CSharpRolodex
                 case "Quit":
                     QuitRolodex();
                     break;
-                case "All Contacts":
+                case "AllContacts":
                     ViewAllContacts();
                     break;
                 case "Delete":

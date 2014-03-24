@@ -1,0 +1,5 @@
+/Users/TheIdleMonk/code/Xamarine/CSharpRolodex/CSharpRolodex/obj/x86/Debug/.NETFramework,Version=v4.0.AssemblyAttribute.cs
+/Users/TheIdleMonk/code/Xamarine/CSharpRolodex/CSharpRolodex/bin/Debug/CSharpRolodex.exe.mdb
+/Users/TheIdleMonk/code/Xamarine/CSharpRolodex/CSharpRolodex/bin/Debug/CSharpRolodex.exe
+/Users/TheIdleMonk/code/Xamarine/CSharpRolodex/CSharpRolodex/obj/x86/Debug/CSharpRolodex.exe
+/Users/TheIdleMonk/code/Xamarine/CSharpRolodex/CSharpRolodex/obj/x86/Debug/CSharpRolodex.exe.mdb

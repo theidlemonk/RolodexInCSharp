@@ -5,12 +5,12 @@ namespace CSharpRolodex
 {
 	public class RolodexAi
 	{
-		AddressBook addressBook = new AddressBook (@"../../AddressBook.txt");
+		TextFileWriter addressBook = new TextFileWriter (@"../../AddressBook.txt");
 
 		public List<string> AllContacts ()
 		{
 			List<string> allContacts = new List<string> ();
-			string[] allContactsList = addressBook.ReturnAllContacts ();
+			string[] allContactsList = addressBook.ReturnAllLines ();
 			foreach (string contact in allContactsList) {
 				allContacts.Add (contact);
 			}
@@ -19,13 +19,13 @@ namespace CSharpRolodex
 
 		public void Add (string firstName, string  lastName, string phoneNumber)
 		{
-			addressBook.WriteToAddressBook (firstName.ToUpper () + "," + lastName.ToUpper () + "," + phoneNumber);
+			addressBook.WriteToFile (firstName.ToUpper () + "," + lastName.ToUpper () + "," + phoneNumber);
 		}
 
 		public List<string> Search (string contactToSearch)
 		{
 			List<string> foundContacts = new List<string> ();
-			string[] allContactsList = addressBook.ReturnAllContacts ();
+			string[] allContactsList = addressBook.ReturnAllLines ();
 			foreach (string contact in allContactsList) {
 				if (contact.Contains (contactToSearch.ToUpper ())) {
 					foundContacts.Add (contact);
@@ -36,7 +36,7 @@ namespace CSharpRolodex
 
 		public void Delete (string contactToDelete)
 		{
-			addressBook.DeleteFromAddressBook (contactToDelete);
+			addressBook.DeleteFromFile (contactToDelete);
 		}
 	}
 }

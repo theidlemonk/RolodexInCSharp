@@ -5,11 +5,15 @@ namespace CSharpRolodex
 {
 	public class AddressBook
 	{
-		private static string AddressBookFileLocation = @"../../AddressBook.txt";
+		private static string AddressBookFileLocation;
+
+		public AddressBook (string filePath)
+		{
+			AddressBookFileLocation = filePath;
+		}
 
 		public void WriteToAddressBook (string lineToWrite)
 		{
-			//	File.WriteAllText (AddressBookFileLocation, lineToWrite);
 			using (StreamWriter w = File.AppendText (AddressBookFileLocation)) {
 				w.WriteLine (lineToWrite);
 			}

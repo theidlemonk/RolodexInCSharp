@@ -5,7 +5,7 @@ namespace CSharpRolodex
 {
 	public class RolodexAi
 	{
-		AddressBook addressBook = new AddressBook ();
+		AddressBook addressBook = new AddressBook (@"../../AddressBook.txt");
 
 		public List<string> AllContacts ()
 		{

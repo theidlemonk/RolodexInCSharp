@@ -8,7 +8,12 @@ namespace CSharpRolodex
 {
 	public class RolodexUi
 	{
-		RolodexAi rolodexAi = new RolodexAi ();
+//		RolodexAi rolodexAi = new RolodexAi ();
+		private RolodexAi rolodexAi;
+
+		public RolodexUi(){
+			rolodexAi = new RolodexAi ();
+		}
 
 		public void Header (string page)
 		{
